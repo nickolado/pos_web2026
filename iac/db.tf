@@ -1,14 +1,14 @@
 resource "aws_db_instance" "myapp_db" {
-  allocated_storage    = 10
-  db_name              = "myapp"
-  engine               = "mysql"
-  engine_version       = "8.0"
-  instance_class       = "db.t3.micro"
-  username             = "myapp_user"
-  password             = "myapp_passwd"
-  parameter_group_name = "default.mysql8.0"
+  allocated_storage      = 10
+  engine                 = "mysql"
+  engine_version         = "8.0"
+  instance_class         = "db.t3.micro"
+  parameter_group_name   = "default.mysql8.0"
   vpc_security_group_ids = [aws_security_group.posweb_mydb_2026_sg.id]
-  skip_final_snapshot  = true
+  skip_final_snapshot    = true
+  db_name  = var.db_name
+  username = var.db_user
+  password = var.db_password
 }
 
 resource "aws_security_group" "posweb_mydb_2026_sg" {
@@ -34,3 +34,4 @@ resource "aws_vpc_security_group_egress_rule" "allow_all_traffic_ipv4_mydb" {
   cidr_ipv4         = "0.0.0.0/0"
   ip_protocol       = "-1" # semantically equivalent to all ports
 }
+
