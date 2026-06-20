@@ -1,0 +1,8 @@
+# Nome do banco de dados inicial que será criado
+db_name     = "myapp"
+
+# Usuário administrador para acessar o banco de dados
+db_user     = "seu_usuario_aqui"
+
+# Senha forte para o usuário do banco (mínimo 8 caracteres)
+db_password = "sua_senha_super_segura_aqui"
